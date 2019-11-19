@@ -1,28 +1,27 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [msg, setMsg] = useState('Default message');
+  const [monsters, setMonsters] = useState([
+    {
+      name: 'Buubu',
+      id: 'bu1'
+    },
+    {
+      name: 'Baubau',
+      id: 'ba1'
+    },
+    {
+      name: 'Grrr',
+      id: 'gr1'
+    }
+  ]);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>{msg}</p>
-        <button onClick={() => setMsg('New new message')}>CHANGE MSG</button>
-      </header>
+      {
+        monsters.map(monster => <h1 key="monster.id">{monster.name}</h1>)
+      }
     </div>
   );
 }
