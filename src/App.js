@@ -1,29 +1,34 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
-  const [monsters, setMonsters] = useState([
-    {
-      name: 'Buubu',
-      id: 'bu1'
-    },
-    {
-      name: 'Baubau',
-      id: 'ba1'
-    },
-    {
-      name: 'Grrr',
-      id: 'gr1'
-    }
-  ]);
+  const {loading, data} = useFetch("https://jsonplaceholder.typicode.com/users");
+
 
   return (
     <div className="App">
-      {
-        monsters.map(monster => <h1 key="monster.id">{monster.name}</h1>)
-      }
+    {
+      loading ? <h1>Loading...</h1> :
+      data.map(user => <h1 key="user.id">{user.name}</h1>)
+    }
     </div>
   );
 }
+
+const useFetch = url => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  async function fetchData() {
+    const response = await fetch(url);
+    const json = await response.json();
+    setData(json);
+    setLoading(false)
+  }
+
+  useEffect(() => fetchData(), []);
+
+  return {loading, data};
+};
 
 export default App;
