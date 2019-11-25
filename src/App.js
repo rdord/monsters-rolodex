@@ -23,13 +23,9 @@ function App() {
 function useInputValue() {
   const [value, setValue] = useState('');
 
-  function handleInput(e) {
-    setValue(e.target.value);
-  }
-
   return {
     value,
-    onChange: handleInput
+    onChange: event => setValue(event.target.value)
   }
 }
 
