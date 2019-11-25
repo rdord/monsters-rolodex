@@ -10,8 +10,14 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform .25s ease-out;
+  align-items: center;
 }
 
 .card:hover {
   transform: scale(1.05);
+}
+
+img {
+  width: 180px;
+  height: 180px;
 }
