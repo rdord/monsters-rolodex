@@ -6,16 +6,19 @@ import {SearchBox} from './components/search-box/search-box.component';
 function App() {
   const monsters = useFetch('https://jsonplaceholder.typicode.com/users');
   const search = useInputValue();
-  
-  useEffect(() => console.log(search))
+
+  const filteredMonsters = monsters.filter(monster => 
+    monster.name.toLowerCase().includes(search.value.toLowerCase())
+  );
 
   return (
     <div className="App" >
       <SearchBox placeholder="Search monster" {...search} />
-      <CardList monsters={monsters} />
+      <CardList monsters={filteredMonsters} />
     </div>
   );
 }
+
 
 function useInputValue() {
   const [value, setValue] = useState('');
