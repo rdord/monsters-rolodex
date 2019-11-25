@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  background-color:lightyellow;
-}
+ }
 
 .App-logo {
   height: 40vmin;
@@ -20,4 +19,14 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+h1 {
+  font-family: 'Bigelow Rules', cursive;
+  color: yellow;
+  font-size: 54px;
+}
+
+.App-heading {
+  font-size: 72px;
 }
