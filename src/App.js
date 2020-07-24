@@ -36,8 +36,8 @@ function useFetch(url) {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(url);
-      const data = await response.json();
-      setData(data);
+      const json = await response.json();
+      setData(json);
     }
     fetchData();
   }, [url]);
